@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         _extraJumpValue = extraJumps;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         var moveInput = Input.GetAxis("Horizontal");
         Debug.Log(moveInput);
@@ -40,12 +40,9 @@ public class PlayerController : MonoBehaviour
 
         if (!_facingRight && moveInput > 0)
             Flip();
-        else if(_facingRight && moveInput < 0)
+        else if (_facingRight && moveInput < 0)
             Flip();
-    }
 
-    private void Update()
-    {
         if (IsGrounded)
         {
             _extraJumpValue = extraJumps;
