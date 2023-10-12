@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController_4 : MonoBehaviour
 {
     [Header("Player Movement")]
     [SerializeField] private float speed;
