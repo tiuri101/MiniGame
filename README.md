@@ -1,5 +1,7 @@
 # MiniGame (Unity 2D Platformer)
 **MiniGame** is a Unity 2D sample that demonstrates the fundamentals of a platformer: a player character with horizontal movement, flipping, and jumping; solid and one-way platforms; collectible coins with trigger detection; and a UI counter plus background audio. The project contains two bitmaps and a sound file.
+![game screenshot](https://github.com/tiuri101/minigame/blob/main/screenshot.jpg?raw=true)
+
 
 ## Instructions
 
