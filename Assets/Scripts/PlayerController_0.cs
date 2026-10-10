@@ -18,6 +18,6 @@ public class PlayerController_0 : MonoBehaviour
         var moveInput = Input.GetAxis("Horizontal");
         Debug.Log(moveInput);
 
-        _rigidbody.velocity = new Vector2(moveInput * speed, _rigidbody.velocity.y);
+        _rigidbody.linearVelocity = new Vector2(moveInput * speed, _rigidbody.linearVelocity.y);
     }
 }

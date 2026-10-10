@@ -31,7 +31,7 @@ public class PlayerController_3 : MonoBehaviour
         var moveInput = Input.GetAxis("Horizontal");
         Debug.Log(moveInput);
 
-        _rigidbody.velocity = new Vector2(moveInput * speed, _rigidbody.velocity.y);
+        _rigidbody.linearVelocity = new Vector2(moveInput * speed, _rigidbody.linearVelocity.y);
 
         if (!_facingRight && moveInput > 0)
             Flip();
@@ -46,7 +46,7 @@ public class PlayerController_3 : MonoBehaviour
         if (Input.GetButtonDown("Jump") &&
             (IsGrounded || _extraJumpValue-- > 0))
         {
-            _rigidbody.velocity = Vector2.up * jumpForce;
+            _rigidbody.linearVelocity = Vector2.up * jumpForce;
         }
     }
 
