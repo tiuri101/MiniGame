@@ -1,33 +1,47 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController_1 : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("Input")]
+    [SerializeField] private InputActionReference moveAction;
+
     [Header("Player Movement")]
     [SerializeField] private float speed;
 
     private Rigidbody2D _rigidbody;
-
+    
     private bool _facingRight = true;
 
-    private void Start()
+    public void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        var moveInput = Input.GetAxis("Horizontal");
-        Debug.Log(moveInput);
-
-        _rigidbody.linearVelocity = new Vector2(moveInput * speed, _rigidbody.linearVelocity.y);
-
-        if (!_facingRight && moveInput > 0)
-            Flip();
-        else if (_facingRight && moveInput < 0)
-            Flip();
+        moveAction.action.Enable();
     }
 
+    private void OnDisable()
+    {
+        moveAction.action.Disable();
+    }
+    
+    private void FixedUpdate()
+    {
+        Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
+        Debug.Log($"Move Input: {moveInput}");
+        _rigidbody.linearVelocityX = moveInput.x * speed;
+        
+        if (!_facingRight && moveInput.x > 0)
+            Flip();
+        else if (_facingRight && moveInput.x < 0)
+            Flip();
+    }
+    
     private void Flip()
     {
         _facingRight = !_facingRight;

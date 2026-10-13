@@ -81,6 +81,7 @@
 
 ### 9) Gameplay Script (High-Level Checklist)
 - Create **PlayerScript** in `Scripts/` and attach it to **Player**.
+- Use the default **Player/Move** and **Player/Jump** Input Action References.
 - Implement:
   - **Sideways movement**.
   - **Flip** the sprite based on movement direction.
