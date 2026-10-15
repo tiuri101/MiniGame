@@ -2,7 +2,7 @@
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController_0 : MonoBehaviour
 {
     [Header("Input")]
     [SerializeField] private InputActionReference moveAction;
